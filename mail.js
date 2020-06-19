@@ -4,6 +4,8 @@ const mailGunApi = process.env.MAILGUN_API_KEY;
 const mailGunDomain = process.env.MAILGUN_DOMAIN;
 const hbs = require('nodemailer-express-handlebars');
 
+
+
 const auth = {
     auth: {
         api_key: mailGunApi,
@@ -22,14 +24,17 @@ let transporter = nodemailer.createTransport(mailGun(auth));
 //     },
 //     viewPath: 'views/'
 // }));
-sendMail = (email, subject, text, cb) => {
+sendMail = (email, subject, text, text1, cb) => {
+
+
     console.log(email, subject, text)
     const mailOptions = {
         from: email,
         // to: 'paul@stradbrokeprinting.com.au',
         to: 'peter.hristakos@bigpond.com',
         subject,
-        text//,
+        text,
+        html: text1
         //template: 'order'
     }
 
